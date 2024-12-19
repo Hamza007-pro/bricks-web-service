@@ -28,6 +28,78 @@ public class Placeholder implements IPlaceholder {
         this.prefix = new Prefix("{{" + key + "}}");
     }
 
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Object getDefaultValue() {
+        return defaultValue;
+    }
+
+    public void setDefaultValue(Object defaultValue) {
+        this.defaultValue = defaultValue;
+    }
+
+    public boolean isRequired() {
+        return isRequired;
+    }
+
+    public void setRequired(boolean required) {
+        isRequired = required;
+    }
+
+    public Object getValue() {
+        return value;
+    }
+
+    public void setValue(Object value) {
+        this.value = value;
+    }
+
+    public Prefix getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(Prefix prefix) {
+        this.prefix = prefix;
+    }
+
+    public Function<Object, Object> getExtendedTransform() {
+        return extendedTransform;
+    }
+
+    public void setExtendedTransform(Function<Object, Object> extendedTransform) {
+        this.extendedTransform = extendedTransform;
+    }
+
+    public Predicate<Object> getValidate() {
+        return Validate;
+    }
+
+    public void setValidate(Predicate<Object> validate) {
+        Validate = validate;
+    }
+
     protected Object transform(Object value, String[] options) {
         // Apply predefined transformations
         Object transformedValue = Transformer.transform(value.toString(), options);

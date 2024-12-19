@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 import java.util.concurrent.CompletableFuture;
 
 
-@Data
 public class Hook {
 
     private String Id;
@@ -23,6 +22,39 @@ public class Hook {
     public Hook(String name, Runnable action, int executionOrder) {
         this.name = name;
         this.action = action;
+        this.executionOrder = executionOrder;
+    }
+
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Runnable getAction() {
+        return action;
+    }
+
+    public void setAction(Runnable action) {
+        this.action = action;
+    }
+
+    public int getExecutionOrder() {
+        return executionOrder;
+    }
+
+    public void setExecutionOrder(int executionOrder) {
         this.executionOrder = executionOrder;
     }
 

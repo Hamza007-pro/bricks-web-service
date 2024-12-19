@@ -13,7 +13,7 @@ public class Transformer {
 
         for (String option : options) {
             switch (option.toLowerCase()) {
-                case "upper":
+                case "uppercase":
                     strValue = strValue.toUpperCase();
                     break;
 
@@ -39,6 +39,10 @@ public class Transformer {
 
                 case "capitalize":
                     strValue = capitalizeWords(strValue);
+                    break;
+
+                case "trim":
+                    strValue = strValue.trim();
                     break;
 
                 default:

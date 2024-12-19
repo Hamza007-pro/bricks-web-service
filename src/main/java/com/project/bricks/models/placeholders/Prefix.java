@@ -21,6 +21,38 @@ public class Prefix {
         Extract(value);
     }
 
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String[] getParams() {
+        return params;
+    }
+
+    public void setParams(String[] params) {
+        this.params = params;
+    }
+
+    public String getLeftSideIndicator() {
+        return leftSideIndicator;
+    }
+
+    public void setLeftSideIndicator(String leftSideIndicator) {
+        this.leftSideIndicator = leftSideIndicator;
+    }
+
+    public String getRightSideIndicator() {
+        return rightSideIndicator;
+    }
+
+    public void setRightSideIndicator(String rightSideIndicator) {
+        this.rightSideIndicator = rightSideIndicator;
+    }
+
     private void Extract(String value) {
         if(value.startsWith(leftSideIndicator) && value.endsWith(rightSideIndicator)) {
             value = value.replace(leftSideIndicator, "").replace(rightSideIndicator, "");

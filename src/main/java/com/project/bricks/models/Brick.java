@@ -18,9 +18,6 @@ import java.util.concurrent.CompletableFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-@Data
-@Component
 public class Brick {
 
     private String id;
@@ -33,18 +30,106 @@ public class Brick {
     private List<Dependency> dependencies;
     private List<Hook> preGenerationHooks;
     private List<Hook> postGenerationHooks;
-    private final TemplateEngine templateEngine;
+    private TemplateEngine templateEngine = null;
     private static final Logger logger = LoggerFactory.getLogger(Brick.class);
 
-    @Autowired
-    public Brick(TemplateEngine templateEngine) {
+    public Brick(String name, String templatePath, String outputPath, String fileNameTemplate, String description) {
         this.templateEngine = templateEngine;
         this.id = UUID.randomUUID().toString();
+        this.name = name;
+        this.templatePath = templatePath;
+        this.outputPath = outputPath;
+        this.fileNameTemplate = fileNameTemplate;
+        this.description = description;
         this.placeholders = new ArrayList<Placeholder>();
         this.dependencies = new ArrayList<Dependency>();
         this.preGenerationHooks = new ArrayList<Hook>();
         this.postGenerationHooks = new ArrayList<Hook>();
 
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTemplatePath() {
+        return templatePath;
+    }
+
+    public void setTemplatePath(String templatePath) {
+        this.templatePath = templatePath;
+    }
+
+    public List<Placeholder> getPlaceholders() {
+        return placeholders;
+    }
+
+    public void setPlaceholders(List<Placeholder> placeholders) {
+        this.placeholders = placeholders;
+    }
+
+    public String getOutputPath() {
+        return outputPath;
+    }
+
+    public void setOutputPath(String outputPath) {
+        this.outputPath = outputPath;
+    }
+
+    public String getFileNameTemplate() {
+        return fileNameTemplate;
+    }
+
+    public void setFileNameTemplate(String fileNameTemplate) {
+        this.fileNameTemplate = fileNameTemplate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Dependency> getDependencies() {
+        return dependencies;
+    }
+
+    public void setDependencies(List<Dependency> dependencies) {
+        this.dependencies = dependencies;
+    }
+
+    public List<Hook> getPreGenerationHooks() {
+        return preGenerationHooks;
+    }
+
+    public void setPreGenerationHooks(List<Hook> preGenerationHooks) {
+        this.preGenerationHooks = preGenerationHooks;
+    }
+
+    public List<Hook> getPostGenerationHooks() {
+        return postGenerationHooks;
+    }
+
+    public void setPostGenerationHooks(List<Hook> postGenerationHooks) {
+        this.postGenerationHooks = postGenerationHooks;
+    }
+
+    public TemplateEngine getTemplateEngine() {
+        return templateEngine;
     }
 
     @Async

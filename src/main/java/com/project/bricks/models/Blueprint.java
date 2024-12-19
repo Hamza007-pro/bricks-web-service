@@ -14,7 +14,7 @@ import java.util.function.Function;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Data
+
 public class Blueprint {
 
     private static final Logger logger = LoggerFactory.getLogger(TemplateEngine.class);
@@ -38,6 +38,86 @@ public class Blueprint {
         this.dependencies = new ArrayList<Dependency>();
         this.preGenerationHooks = new ArrayList<Hook>();
         this.postGenerationHooks = new ArrayList<Hook>();
+        this.outputDirectoryStructure = outputDirectoryStructure;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Brick> getBricks() {
+        return bricks;
+    }
+
+    public void setBricks(List<Brick> bricks) {
+        this.bricks = bricks;
+    }
+
+    public Map<String, String> getConfiguration() {
+        return configuration;
+    }
+
+    public void setConfiguration(Map<String, String> configuration) {
+        this.configuration = configuration;
+    }
+
+    public List<Placeholder> getPlaceholders() {
+        return placeholders;
+    }
+
+    public void setPlaceholders(List<Placeholder> placeholders) {
+        this.placeholders = placeholders;
+    }
+
+    public List<Dependency> getDependencies() {
+        return dependencies;
+    }
+
+    public void setDependencies(List<Dependency> dependencies) {
+        this.dependencies = dependencies;
+    }
+
+    public List<Hook> getPreGenerationHooks() {
+        return preGenerationHooks;
+    }
+
+    public void setPreGenerationHooks(List<Hook> preGenerationHooks) {
+        this.preGenerationHooks = preGenerationHooks;
+    }
+
+    public List<Hook> getPostGenerationHooks() {
+        return postGenerationHooks;
+    }
+
+    public void setPostGenerationHooks(List<Hook> postGenerationHooks) {
+        this.postGenerationHooks = postGenerationHooks;
+    }
+
+    public String getOutputDirectoryStructure() {
+        return outputDirectoryStructure;
+    }
+
+    public void setOutputDirectoryStructure(String outputDirectoryStructure) {
         this.outputDirectoryStructure = outputDirectoryStructure;
     }
 
